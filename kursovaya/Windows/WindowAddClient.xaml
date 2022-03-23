@@ -1,0 +1,28 @@
+﻿<Window x:Class="kursovaya.Windows.WindowAddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursovaya.Windows"
+        mc:Ignorable="d"
+        Title="WindowAddClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid  Columns="2">
+            <TextBlock>FirstName</TextBlock>
+            <TextBox x:Name="TxtFirstName" Text="{Binding FirstName}"></TextBox>
+            <TextBlock>LastName</TextBlock>
+            <TextBox x:Name="TxtLastName" Text="{Binding LastName}"></TextBox>
+            <TextBlock>Patronymic</TextBlock>
+            <TextBox x:Name="TxtPatronymic" Text="{Binding Patronymic}"></TextBox>
+            <TextBlock>Telephone</TextBlock>
+            <TextBox x:Name="TxtTelephone" Text="{Binding Telephone}"></TextBox>
+            <TextBlock>Address</TextBlock>
+            <TextBox x:Name="TxtAddress" Text="{Binding Address}"></TextBox>
+        </UniformGrid>
+        <Button x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Сохранить</Button>
+    </Grid>
+</Window>

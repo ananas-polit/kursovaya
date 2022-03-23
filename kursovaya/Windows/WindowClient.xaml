@@ -1,0 +1,46 @@
+﻿<Window x:Class="kursovaya.Windows.WindowClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursovaya.Windows"
+        mc:Ignorable="d"
+        Title="WindowClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="StackLetters" Orientation="Horizontal" Background="{StaticResource ColorMain}" Margin="0,0,-0.4,5">
+            <TextBlock FontWeight="Bold" Foreground="White" Margin="5" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"><Run Text="All"/></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock FontSize="20" Margin="0,0,0,27" Width="73"><Run Text="Поиск"/></TextBlock>
+            <TextBox Width="189" x:Name="txtFirstName" TextChanged="txtFirstName_TextChanged"  Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridClient" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Patronymic" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Telephone" Binding="{Binding Telephone}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Click="BtnEdit_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <Button x:Name="BtnAddClient" Click="BtnAddClient_Click"  Style="{StaticResource MenuButton}" Content="Add" Margin="20,20,20,10" />
+            <Button x:Name="BtnDeleteClientS" Click="BtnDeleteClientS_Click"  Style="{StaticResource MenuButton}"  Content="Delete" Margin="20,20,20,10"/>
+            <Button x:Name="BtnBackClientS" Click="BtnBackClientS_Click"  Style="{StaticResource MenuButton}"  Content="Back" Margin="20,20,20,10"/>
+        </StackPanel>
+    </Grid>
+</Window>

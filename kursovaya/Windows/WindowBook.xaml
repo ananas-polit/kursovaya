@@ -1,0 +1,54 @@
+﻿<Window x:Class="kursovaya.Windows.WindowBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursovaya.Windows"
+        mc:Ignorable="d"
+        Title="WindowBook" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="StackLetters" Orientation="Horizontal" Background="{StaticResource ColorMain}" Margin="0,0,-0.4,5">
+            <TextBlock FontWeight="Bold" Foreground="White" Margin="5" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"></TextBlock>
+        </StackPanel>
+        <Grid Margin="3,0,-3.4,0">
+            <TextBlock FontSize="16" Margin="0,20,589,16">Фильтрация по Section</TextBlock>
+            <ComboBox x:Name="CmbGender" DisplayMemberPath="Name" SelectionChanged="CmbGender_SelectionChanged" Margin="179,20,472,20">
+                <Label Content="Все"></Label>
+                <Label Content="Без раздела"></Label>
+                <Label Content="Первый раздел"></Label>
+                <Label Content="Второй раздел"></Label>
+                <Label Content="Третий раздел"></Label>
+                <Label Content="Четвертый раздел"></Label>
+            </ComboBox>
+            <TextBlock Margin="341,20,332,25" FontSize="16" >Название книги</TextBlock>
+            <TextBox x:Name="TxtName" TextChanged="TxtName_TextChanged" Margin="467,20,197,20"/>
+            <Button x:Name="BtnBack" Click="BtnBack_Click" Style="{StaticResource MenuButton}"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Height="40">Back</Button>
+
+        </Grid>
+        <DataGrid x:Name="DataGridBook" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}"/>
+                <DataGridTextColumn Header="Year_Public" Binding="{Binding Year_public}"/>
+                <DataGridTextColumn Header="Publishinghouse" Binding="{Binding Publishinghouse.Publishing_house}"/>
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre.Genre1}"/>
+                <DataGridTextColumn Header="Section" Binding="{Binding Section.Section1}"/>
+                <DataGridTemplateColumn Header="Photo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Photo}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn >
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
